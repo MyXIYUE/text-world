@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript">
+        // 希望达到的效果：通过异步的方式跨域获取数据
+        // 动态创建script标签
+        // 服务器响应内容是【函数调用】callback(参数)
+        var script = document.createElement('script');
+        script.src = 'http://www\study\ajax补充/data.php?callback=abc';
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(script);
+
+        function abc(data){
+            console.log(data.username);
+            console.log(data.age);
+        }
+    </script>
+</head>
+<body>
+    <div>jsonp</div>
+</body>
+</html>
